@@ -1,7 +1,7 @@
-#from redbot.core import commands
+from redbot.core import commands
 
-import .asciiModules.webscrapGet as wG
-import .asciiModules.urlGenerator as uG
+import asciiModules.webscrapGet as wG
+import asciiModules.urlGenerator as uG
 
 
 class MyCog(commands.Cog):
