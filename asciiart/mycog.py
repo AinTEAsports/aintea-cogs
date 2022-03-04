@@ -1,11 +1,7 @@
-from redbot.core import commands
+#from redbot.core import commands
 
 import asciiModules.webscrapGet as wG
 import asciiModules.urlGenerator as uG
-
-
-with open('./asciiModules/textPolices.txt', 'r') as f:
-    styleList = f.read()
 
 
 class MyCog(commands.Cog):
@@ -32,7 +28,7 @@ class MyCog(commands.Cog):
             await ctx.send("```\nPlease enter text```")
             return
         
-        if style not in styleList:
+        if style not in wG.fontList:
             await ctx.send(f"```\nStyle '{style}' does not exist```")
             return
         
