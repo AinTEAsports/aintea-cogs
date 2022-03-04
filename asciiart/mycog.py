@@ -1,7 +1,7 @@
 from redbot.core import commands
 
-import webscrapGet as wG
-import urlGenerator as uG
+import asciiModules.webscrapGet as wG
+import asciiModules.urlGenerator as uG
 
 
 with open('./asciiModules/textPolices.txt', 'r') as f:
