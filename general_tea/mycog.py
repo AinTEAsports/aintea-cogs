@@ -23,4 +23,4 @@ class MyCog(commands.Cog):
     
     @commands.command()
     async def teaping(self, ctx):
-        await ctx.send(f"```py\n{commands.Bot.latency*1000} ms```")
+        await ctx.send(f"```py\n{commands.Bot.latency} ms```")
