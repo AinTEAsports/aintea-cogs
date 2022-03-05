@@ -11,7 +11,7 @@ class MyCog(commands.Cog):
 
 
 	@commands.command()
-	async def calendrier(self, ctx, month : int, year : int) -> None:
+	async def calendrier(self, ctx, month, year):
 		try:
 			month = int(month)
 			year = int(year)
