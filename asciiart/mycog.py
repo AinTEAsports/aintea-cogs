@@ -26,7 +26,7 @@ class AsciiCog(commands.Cog):
         
     
     @commands.command()
-    async def ascii_art(self, ctx, style : str, *, text : str):
+    async def ascii_art(self, ctx, style : str, *text : str):
         text = " ".join(text)
         
         if not text:
