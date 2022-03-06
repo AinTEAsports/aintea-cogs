@@ -1,9 +1,14 @@
 from redbot.core import commands
 from selenium import webdriver
+import discord
+from discord.ext import commands, tasks
+from discord_slash import SlashCommand
 
 from .asciiModules.webscrapGet import getASCII, getFontList
 from .asciiModules.urlGenerator import createUrl
 
+
+slash = SlashCommand(commands.Bot, sync_commands=True)
 
 ############ COG CLASS #############
 
@@ -46,3 +51,12 @@ class AsciiCog(commands.Cog):
     @commands.command()
     async def ascii_style_list(self, ctx):
         await ctx.send(f"```\n{getFontList()}```")
+
+
+    @commands.slash.slash(name="avatar", description="Shows user avatar")
+    async def avatar(self, ctx, user : discord.User = None):
+        if not user:
+            await ctx.send(ctx.author.avatar_url)
+            return
+        
+        await ctx.send(user.avatar_url)
