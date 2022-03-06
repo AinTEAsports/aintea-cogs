@@ -26,7 +26,7 @@ class AsciiCog(commands.Cog):
         
     
     @commands.command()
-    async def ascii_art(self, ctx, style : str, *text : str):
+    async def ascii_art(self, ctx, style : str = "Graffiti", *text : str):
         text = " ".join(text)
         
         if not text:
@@ -41,3 +41,8 @@ class AsciiCog(commands.Cog):
         asciiArt = getASCII(url)
         
         await ctx.send(f"```\n{asciiArt}```")
+
+
+    @commands.command()
+    async def ascii_style_list(self, ctx):
+        await ctx.send(f"```\n{getFontList()}```")
