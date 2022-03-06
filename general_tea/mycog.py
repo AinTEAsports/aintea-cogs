@@ -75,4 +75,4 @@ class TeaCog(commands.Cog):
 			'JOHN CENA PAPALAPAAAAAA'
 		]
 
-		await commands.Bot.rename(user, random.choice(nicknames))
+		await user.edit(nick=random.choice(nicknames))
