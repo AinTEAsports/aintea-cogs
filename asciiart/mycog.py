@@ -1,8 +1,8 @@
 from redbot.core import commands
 from selenium import webdriver
 
-from asciiModules.webscrapGet import getASCII
-from asciiModules.urlGenerator import createUrl
+from .asciiModules.webscrapGet import getASCII
+from .asciiModules.urlGenerator import createUrl
 
 
 with open('./asciiModules/textPolices.txt', 'r') as f:
