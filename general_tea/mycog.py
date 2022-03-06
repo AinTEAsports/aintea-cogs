@@ -1,5 +1,7 @@
+import random
 import calendar
 
+import discord
 from redbot.core import commands
 
 
@@ -57,3 +59,20 @@ class TeaCog(commands.Cog):
 				lst_return.append(i)
 
 		await ctx.send("".join(lst_return))
+
+
+	@commands.command()
+	async def randomRename(self, ctx, user : discord.User = None):
+		if not user:
+			user = ctx.author
+        
+		nicknames = [
+			'Magg Rosbit',
+			'Bobby Dick',
+			'Joe Mama',
+			'James Labitt',
+			'Jean Neymar',
+			'JOHN CENA PAPALAPAAAAAA'
+		]
+
+		await commands.Bot.change_nickname(user, random.choice(nicknames))
