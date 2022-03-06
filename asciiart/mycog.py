@@ -1,12 +1,8 @@
 from redbot.core import commands
 from selenium import webdriver
 
-from .asciiModules.webscrapGet import getASCII
+from .asciiModules.webscrapGet import getASCII, getFontList
 from .asciiModules.urlGenerator import createUrl
-
-
-with open('./asciiModules/textPolices.txt', 'r') as f:
-    fontList = f.read()
 
 
 ############ COG CLASS #############
@@ -17,6 +13,7 @@ class MyCog(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+
 
     @commands.command()
     async def hi(self, ctx):
@@ -36,7 +33,7 @@ class MyCog(commands.Cog):
             await ctx.send("```\nPlease enter text```")
             return
         
-        if style not in fontList:
+        if style not in getFontList():
             await ctx.send(f"```\nStyle '{style}' does not exist```")
             return
         
