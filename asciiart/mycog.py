@@ -8,7 +8,7 @@ from .asciiModules.urlGenerator import createUrl
 ############ COG CLASS #############
 
 
-class MyCog(commands.Cog):
+class AsciiCog(commands.Cog):
     """My custom cog"""
 
     def __init__(self, bot):
