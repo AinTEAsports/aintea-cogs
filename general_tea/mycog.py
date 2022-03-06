@@ -3,7 +3,7 @@ import calendar
 from redbot.core import commands
 
 
-class MyCog(commands.Cog):
+class TeaCog(commands.Cog):
 	"""My custom cog"""
 
 	def __init__(self, bot):

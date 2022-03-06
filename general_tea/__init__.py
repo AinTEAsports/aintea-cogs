@@ -1,4 +1,4 @@
-from .mycog import MyCog
+from .mycog import TeaCog
 
 def setup(bot):
-    bot.add_cog(MyCog(bot))
+    bot.add_cog(TeaCog(bot))
