@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-with open('./textPolices.txt', 'r') as f:
+with open('./asciiModules/textPolices.txt', 'r') as f:
     fontList = f.read()
 
 
