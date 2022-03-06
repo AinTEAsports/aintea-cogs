@@ -1,11 +1,4 @@
-import os
 from selenium import webdriver
-
-print(os.path.abspath('./'))
-
-
-with open('./asciiModules/textPolices.txt', 'r') as f:
-    fontList = f.read()
 
 
 def getASCII(siteURL : str):
@@ -18,6 +11,9 @@ def getASCII(siteURL : str):
     Returns:
         str: the ASCII art the program got from the website
     """
+    
+    with open('./asciiModules/textPolices.txt', 'r') as f:
+        fontList = f.read()
 
     # Setting headless mode
     driverOptions = webdriver.FirefoxOptions()
