@@ -7,16 +7,15 @@ from .asciiModules.webscrapGet import getASCII, getFontList
 from .asciiModules.urlGenerator import createUrl
 
 
-slash = SlashCommand(commands.Bot, sync_commands=True)
-
 ############ COG CLASS #############
-
 
 class AsciiCog(commands.Cog):
     """My custom cog"""
 
     def __init__(self, bot):
         self.bot = bot
+        self.slash = SlashCommand(self.bot, sync_commands=True)
+
 
 
     @commands.command()
