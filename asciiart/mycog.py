@@ -1,7 +1,6 @@
 from redbot.core import commands
 from selenium import webdriver
-import discord
-from discord.ext import commands, tasks
+
 from discord_slash import SlashCommand
 
 from .asciiModules.webscrapGet import getASCII, getFontList
