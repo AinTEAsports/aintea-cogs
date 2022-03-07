@@ -53,7 +53,7 @@ class AsciiCog(commands.Cog):
         await ctx.send(f"```\n{getFontList()}```")
 
 
-    @commands.slash.slash(name="avatar", description="Shows user avatar")
+    @slash.slash(name="avatar", description="Shows user avatar")
     async def avatar(self, ctx, user : discord.User = None):
         if not user:
             await ctx.send(ctx.author.avatar_url)
