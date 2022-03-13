@@ -14,7 +14,7 @@ class AsciiCog(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.slash = SlashCommand(self.bot, sync_commands=True)
+        slash = SlashCommand(self.bot, sync_commands=True)
 
 
 
@@ -49,12 +49,3 @@ class AsciiCog(commands.Cog):
     @commands.command()
     async def ascii_style_list(self, ctx):
         await ctx.send(f"```\n{getFontList()}```")
-
-
-    @slash.slash(name="avatar", description="Shows user avatar")
-    async def avatar(self, ctx, user : discord.User = None):
-        if not user:
-            await ctx.send(ctx.author.avatar_url)
-            return
-        
-        await ctx.send(user.avatar_url)
