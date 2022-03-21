@@ -12,7 +12,6 @@ class AsciiCog(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        slash = SlashCommand(self.bot, sync_commands=True)
 
 
 
