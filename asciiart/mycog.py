@@ -1,8 +1,6 @@
 from redbot.core import commands
 from selenium import webdriver
 
-from discord_slash import SlashCommand
-
 from .asciiModules.webscrapGet import getASCII, getFontList
 from .asciiModules.urlGenerator import createUrl
 
