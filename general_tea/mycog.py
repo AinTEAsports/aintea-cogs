@@ -84,7 +84,7 @@ class TeaCog(commands.Cog):
 		if message.author == self.bot.user:
 			return
 
-		forbiddenWords = open('./forbiddenWords.txt', 'r').read().split('\n')
+		forbiddenWords = open('./generalModules/forbiddenWords.txt', 'r').read().split('\n')
 		if unidecode(message.lower()) in forbiddenWords:
 			await message.delete()
 			await message.author.send(f"Vous ne pouvez pas envoyer ce genre de mots dans le serveur **{message.guild.name}** !")
@@ -92,7 +92,7 @@ class TeaCog(commands.Cog):
 
 	@commands.command()
 	async def addForbiddenWord(self, ctx, word : str):
-		with open('./forbiddenWords.txt', 'a') as f:
+		with open('./generalModules/forbiddenWords.txt', 'a') as f:
 			f.write(f"\n{unidecode(word.lower())}")
 		
 		await ctx.message.add_reaction("✅")
@@ -100,7 +100,7 @@ class TeaCog(commands.Cog):
 
 	@commands.command()
 	async def getForbiddenWords(self, ctx):
-		forbiddenWords = open('./forbiddenWords.txt', 'r').read()
+		forbiddenWords = open('./generalModules/forbiddenWords.txt', 'r').read()
 
 		if not forbiddenWords:
 			await ctx.send("```\nAucun mot n'a été interdit sur ce serveur```")
