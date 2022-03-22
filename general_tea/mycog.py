@@ -1,7 +1,7 @@
 import random
 import calendar
+from unidecode import unidecode
 
-import discord
 from redbot.core import commands
 
 
@@ -76,3 +76,22 @@ class TeaCog(commands.Cog):
 		]
 
 		await user.edit(nick=random.choice(nicknames))
+
+
+	@commands.Cog.listener()
+	async def on_message(self, message):
+		if message.author == self.bot.user:
+			return
+
+		forbiddenWords = open('forbiddenWords.txt', 'r').read().split('\n')
+		if unidecode(message.lower()) in forbiddenWords:
+			await message.delete()
+			await message.author.send(f"Vous ne pouvez pas envoyer ce genre de mots dans le serveur **{message.guild.name}** !")
+
+
+	@commands.command()
+	async def addForbiddenWord(self, ctx, word : str):
+		with open('forbiddenWords.txt', 'a') as f:
+			f.write(f"\n{unidecode(word.lower())}")
+		
+		await ctx.message.add_reaction("✅")
