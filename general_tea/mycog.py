@@ -95,3 +95,13 @@ class TeaCog(commands.Cog):
 			f.write(f"\n{unidecode(word.lower())}")
 		
 		await ctx.message.add_reaction("✅")
+
+
+	@commands.command()
+	async def getForbiddenWords(self, ctx):
+		forbiddenWords = open('forbiddenWords.txt', 'r').read()
+
+		if not forbiddenWords:
+			await ctx.send("```\nAucun mot n'a été interdit sur ce serveur```")
+
+		await ctx.send(f"```\n{forbiddenWords}```")
