@@ -2,6 +2,7 @@ import random
 import calendar
 from unidecode import unidecode
 
+import discord
 from redbot.core import commands
 
 
