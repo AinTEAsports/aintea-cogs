@@ -103,7 +103,7 @@ class TeaCog(commands.Cog):
 	
 	@commands.command()
 	async def sendDM(self, ctx, user : discord.User, *, text):
-		text = " ".join(text)
+		text = "".join(text)
 
 		if not isinstance(user, discord.User):
 			await ctx.send(f"```\n'{user}' is not a discord user !```")
