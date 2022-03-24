@@ -36,30 +36,23 @@ class TeaCog(commands.Cog):
 
 	@commands.command()
 	async def gamerzification(self, ctx, *, phrase):
+		phrase = " ".join(phrase)
+		toReturn = ""
 
-		if len(phrase) == 1:
-			phrase = "".join(list(phrase))
-		else:
-			phrase = " ".join(list(phrase))
-		lst_return = []
+		transformation = {'a': '@', 'b': 'β', 'c': 'ς', 'd': 'd', 'e': '€',
+						'f': 'f', 'g': 'g', 'h': 'h', 'i': '1', 'j': 'j', 'k': 'k',
+						'l': 'l', 'm': 'm', 'n': 'n', 'o': '0', 'p': 'p', 'q': 'q',
+						'r': 'r', 's': '§', 't': 'τ', 'u': 'µ', 'v': 'ν', 'w': 'ω',
+						'x': 'χ', 'y': 'γ', 'z': 'z'
+		}
 
-		alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-		alphabet_gamerz = ['@', 'β', 'ς', 'd', '€', 'f', 'g', 'h', '1', 'j', 'k', 'l', 'm', 'n', '0', 'p', 'q', 'r', '§', 'τ', 'µ', 'ν', 'ω', 'χ', 'γ', 'z']
-
-		for i in list(phrase):
-			try:
-				index = alphabet.index(i)
-				if alphabet[index] == alphabet_gamerz[index]:
-					lst_return.append(i)
-				else:
-					try:
-						lst_return.append(alphabet_gamerz[index])
-					except ValueError:
-						lst_return.append(i)
-			except ValueError:
-				lst_return.append(i)
-
-		await ctx.send("".join(lst_return))
+		for char in phrase:
+			if char in transformation.keys():
+				toReturn += transformation[char]
+			else:
+				toReturn += char
+		
+		await ctx.send(f"```\n{toReturn}```")
 
 
 	@commands.command()
@@ -106,3 +99,17 @@ class TeaCog(commands.Cog):
 			await ctx.send("```\nAucun mot n'a été interdit sur ce serveur```")
 
 		await ctx.send(f"```\n{forbiddenWords}```")
+
+	
+	@commands.command()
+	async def sendDM(self, ctx, user : discord.User, *, text):
+		text = " ".join(text)
+
+		if not isinstance(user, discord.User):
+			await ctx.send(f"```\n'{user}' is not a discord user !```")
+			await ctx.message.add_reaction("❌")
+			return
+		
+		await user.send(f"```\n{text}\n\n- {ctx.author.name}```")
+
+		await ctx.message.add_reaction("✅")
