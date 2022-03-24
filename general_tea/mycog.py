@@ -102,6 +102,7 @@ class TeaCog(commands.Cog):
 
 	
 	@commands.command()
+	@commands.has_permission(administrator=True)
 	async def sendDM(self, ctx, user : discord.User, *, text):
 		text = "".join(text)
 
