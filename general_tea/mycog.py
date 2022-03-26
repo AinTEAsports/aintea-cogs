@@ -126,10 +126,15 @@ class TeaCog(commands.Cog):
 		if message.author == self.bot.user:
 			return
 
+		if message.guild.id != 857322481795072012:
+			return
 
-		if ('rp' in message.content or 'RP' in message.content) and message.guild.id == 857322481795072012:
+		if 'rp' in message.content or 'RP' in message.content:
 			await message.reply("Alors je me permet hein, mais du RP c'est jamais une bonne idée, donc ferme ta gueule")
 		
 		# ID de notapro
-		if message.author.id == 763078382417084446 and message.guild == 857322481795072012:
+		if message.author.id == 763078382417084446:
 			await message.reply(f"Ta gueule {message.author.mention}")
+
+		if  'uwu' in message.content.lower():
+			await message.reply("No 'UwU' here bro")
