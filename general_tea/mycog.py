@@ -18,7 +18,7 @@ class TeaCog(commands.Cog):
 		if message.author == self.bot.user:
 			return
 
-		if ('rp' in message or 'RP' in message) and message.guild.id == 857322481795072012:
+		if ('rp' in message.content or 'RP' in message.content) and message.guild.id == 857322481795072012:
 			await message.reply("Alors je me permet hein, mais du RP c'est jamais une bonne idée, donc ferme ta gueule")
 
 
