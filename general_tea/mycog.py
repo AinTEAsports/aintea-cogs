@@ -134,7 +134,7 @@ class TeaCog(commands.Cog):
 		
 		# ID de notapro
 		if message.author.id == 763078382417084446:
-			await message.reply(f"Ta gueule {message.author.mention}")
+			await message.reply(f"Ta gueule {message.author.name}")
 
 		if  'uwu' in message.content.lower():
 			await message.reply("No 'UwU' here bro")
