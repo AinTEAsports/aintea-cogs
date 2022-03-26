@@ -13,6 +13,15 @@ class TeaCog(commands.Cog):
 		self.bot = bot
 
 
+	@commands.Cog.listener()
+	async def on_message(self, message):
+		if message.author == self.bot.user:
+			return
+
+		if ('rp' in message or 'RP' in message) and message.auhtor.guild.id == 857322481795072012:
+			await message.reply("Alors je me permet hein, mais du RP c'est jamais une bonne idée, donc ferme ta gueule")
+
+
 	@commands.command()
 	async def calendrier(self, ctx, month, year):
 		try:
@@ -72,6 +81,7 @@ class TeaCog(commands.Cog):
 		await user.edit(nick=random.choice(nicknames))
 
 
+	"""
 	@commands.Cog.listener()
 	async def on_message(self, message):
 		if message.author == self.bot.user:
@@ -99,8 +109,9 @@ class TeaCog(commands.Cog):
 			await ctx.send("```\nAucun mot n'a été interdit sur ce serveur```")
 
 		await ctx.send(f"```\n{forbiddenWords}```")
-
+	"""
 	
+
 	@commands.command()
 	async def sendDM(self, ctx, user : discord.User, *, text):
 		text = "".join(text)
