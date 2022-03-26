@@ -13,15 +13,6 @@ class TeaCog(commands.Cog):
 		self.bot = bot
 
 
-	@commands.Cog.listener()
-	async def on_message(self, message):
-		if message.author == self.bot.user:
-			return
-
-		if ('rp' in message.content or 'RP' in message.content) and message.guild.id == 857322481795072012:
-			await message.reply("Alors je me permet hein, mais du RP c'est jamais une bonne idée, donc ferme ta gueule")
-
-
 	@commands.command()
 	async def calendrier(self, ctx, month, year):
 		try:
@@ -124,3 +115,21 @@ class TeaCog(commands.Cog):
 		await user.send(f"```\n{text}\n\n- {ctx.author.name}```")
 
 		await ctx.message.add_reaction("✅")
+
+
+
+
+	########################### GRENUILLE SERVER ######################################
+	
+	@commands.Cog.listener()
+	async def on_message(self, message):
+		if message.author == self.bot.user:
+			return
+
+
+		if ('rp' in message.content or 'RP' in message.content) and message.guild.id == 857322481795072012:
+			await message.reply("Alors je me permet hein, mais du RP c'est jamais une bonne idée, donc ferme ta gueule")
+		
+		# ID de notapro
+		if message.author.id == 763078382417084446 and message.guild == 857322481795072012:
+			await message.reply(f"Ta gueule {message.author.mention}")
