@@ -115,22 +115,3 @@ class TeaCog(commands.Cog):
 		await user.send(f"```\n{text}\n\n- {ctx.author.name}```")
 
 		await ctx.message.add_reaction("✅")
-
-
-
-
-	########################### GRENUILLE SERVER ######################################
-
-	# All under this is for a personnal server
-
-	
-	@commands.Cog.listener()
-	async def on_message(self, message):
-		if message.author == self.bot.user:
-			return
-
-		if message.guild.id != 857322481795072012:
-			return
-
-		if 'rp' in message.content or 'RP' in message.content:
-			await message.reply("Alors je me permet hein, mais du RP c'est jamais une bonne idée, donc ferme ta gueule", mention_author=False)
