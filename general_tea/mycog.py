@@ -120,6 +120,9 @@ class TeaCog(commands.Cog):
 
 
 	########################### GRENUILLE SERVER ######################################
+
+	# All under this is for a personnal server
+
 	
 	@commands.Cog.listener()
 	async def on_message(self, message):
@@ -131,7 +134,3 @@ class TeaCog(commands.Cog):
 
 		if 'rp' in message.content or 'RP' in message.content:
 			await message.reply("Alors je me permet hein, mais du RP c'est jamais une bonne idée, donc ferme ta gueule", mention_author=False)
-		
-		# ID de notapro
-		if message.author.id == 763078382417084446:
-			await message.reply(f"Ta gueule {message.author.name}", mention_author=False)
