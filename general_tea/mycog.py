@@ -72,6 +72,7 @@ class TeaCog(commands.Cog):
 		await user.edit(nick=random.choice(nicknames))
 
 
+	# This part doesn't work because of can't read file
 	"""
 	@commands.Cog.listener()
 	async def on_message(self, message):
