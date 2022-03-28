@@ -56,7 +56,7 @@ class TeaCog(commands.Cog):
 
 
 	@commands.command()
-	async def randomRename(self, ctx, user : discord.User = None):
+	async def randomRename(self, ctx, user : discord.Member = None):
 		if not user:
 			user = ctx.author
         
