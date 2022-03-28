@@ -116,3 +116,15 @@ class TeaCog(commands.Cog):
 		await user.send(f"```\n{text}\n\n- {ctx.author.name}```")
 
 		await ctx.message.add_reaction("✅")
+
+
+	@commands.command()
+	async def userRename(self, ctx, user : discord.Member, pseudo):
+		await user.edit(nick=pseudo)
+		await ctx.message.add_reaction("✅")
+
+
+	@commands.command()
+	async def resetname(self, ctx, user : discord.Member):
+		await user.edit(nick=user.name)
+		await ctx.message.add_reaction("✅")
