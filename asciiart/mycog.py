@@ -17,7 +17,7 @@ class AsciiCog(commands.Cog):
 
 
 
-    @cog_ext.cog_slash(name="avatar", aliases=["av"], description="Get your avatar in ASCII art")
+    @cog_ext.cog_slash(name="avatar", description="Get your avatar in ASCII art")
     async def avatar(self, ctx, user : discord.User = None):
         if not user:
             user = ctx.author
