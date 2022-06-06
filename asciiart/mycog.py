@@ -1,8 +1,10 @@
+import discord
 from redbot.core import commands
 from selenium import webdriver
+from discord_slash import cog_ext
 
-from .asciiModules.webscrapGet import getASCII, getFontList
-from .asciiModules.urlGenerator import createUrl
+from .asciiModules.webscrapGet import get_ascii, get_font_list
+from .asciiModules.urlGenerator import create_url
 
 
 ############ COG CLASS #############
@@ -10,14 +12,17 @@ from .asciiModules.urlGenerator import createUrl
 class AsciiCog(commands.Cog):
     """My custom cog"""
 
-    def __init__(self, bot):
+    def __init__(self, bot) -> None :
         self.bot = bot
 
 
 
-    @commands.command()
-    async def hi(self, ctx):
-        await ctx.send(f"Hi {ctx.author.mention}")
+    @cog_ext.cog_slash()
+    async def avatar(self, ctx, user : discord.User = None):
+        if not user:
+            user = ctx.author
+        
+        await ctx.send(user.avatar_url)
      
         
     @commands.command()
@@ -33,16 +38,18 @@ class AsciiCog(commands.Cog):
             await ctx.send("```\nPlease enter text```")
             return
         
-        if style not in getFontList():
+        if style not in get_font_list():
             await ctx.send(f"```\nStyle '{style}' does not exist```")
             return
         
-        url = createUrl(textStyle=style, text=text)
-        asciiArt = getASCII(url)
+        url = create_url(textStyle=style, text=text)
+        asciiArt = get_ascii(url)
         
         await ctx.send(f"```\n{asciiArt}```")
 
 
     @commands.command()
     async def ascii_style_list(self, ctx):
-        await ctx.send(f"```\n{getFontList()}```")
+        await ctx.send(f"```\n{get_font_list()}```")
+
+

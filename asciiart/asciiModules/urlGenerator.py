@@ -1,4 +1,4 @@
-def createUrl(textStyle : str, text : str):
+def create_url(textStyle : str, text : str):
     """Function that will create URL from style and text
 
     Args:
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     style = input("Enter text style : ")
     content = input("Enter text : ")
     
-    testUrl = createUrl(textStyle=style, text=content)
+    testUrl = create_url(textStyle=style, text=content)
     
     print(testUrl)
     webbrowser.open(testUrl)

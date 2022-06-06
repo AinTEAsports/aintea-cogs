@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 
-def getASCII(siteURL : str):
+def get_ascii(site_url : str) -> str :
     """Function to get ASCII art from a link
 
     Args:
@@ -15,38 +15,38 @@ def getASCII(siteURL : str):
     """
 
     # Setting headless mode
-    driverOptions = webdriver.FirefoxOptions()
-    driverOptions.headless = True
+    driver_options = webdriver.FirefoxOptions()
+    driver_options.headless = True
     
-    driver = webdriver.Firefox(options=driverOptions)
-    driver.get(siteURL)
+    driver = webdriver.Firefox(options=driver_options)
+    driver.get(site_url)
     
     # Getting the ASCII art
-    asciiArt = driver.find_element_by_id("taag_output_text")
+    ascii_art = driver.find_element_by_id("taag_output_text")
 
     # If no ASCII art has been got, the program will return an empty
     # string
-    if not asciiArt:
+    if not ascii_art:
         return ""
         
     # Returns ASCII art without HTML balises
-    return asciiArt.text
+    return ascii_art.text
 
 
-def getFontList() -> str():
+def get_font_list() -> str :
     response = requests.get("https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something", headers={"User-Agent" : "XY"})
     soup = BeautifulSoup(response.text, 'lxml')
 
-    fontList = soup.findAll(name='optgroup')
+    font_list = soup.findAll(name='optgroup')
     fontStr = ""
     
-    for font in fontList:
+    for font in font_list:
         fontStr += font.text
     
     return fontStr
 
 
 if __name__ == "__main__":
-    asciiArt = getASCII("https://patorjk.com/software/taag/#p=display&f=Big&t=PyScii")
-    print(asciiArt)
-    print(getFontList())
+    ascii_art = get_ascii("https://patorjk.com/software/taag/#p=display&f=Big&t=PyScii")
+    print(ascii_art)
+    print(get_font_list())
