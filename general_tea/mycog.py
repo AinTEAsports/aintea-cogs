@@ -1,4 +1,5 @@
 import random
+import requests
 import calendar
 from unidecode import unidecode
 
@@ -128,3 +129,13 @@ class TeaCog(commands.Cog):
 	async def resetname(self, ctx, user : discord.Member):
 		await user.edit(nick=user.name)
 		await ctx.message.add_reaction("✅")
+
+
+    @commands.command()
+    async def chuck_fact(self):
+        response = requests.get("https://api.chucknorris.io/jokes/random")
+        joke = json.loads(response.text)["value"]
+
+        return joke
+
+
